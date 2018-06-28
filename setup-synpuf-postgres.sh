@@ -9,7 +9,7 @@ sources=$(echo '/etc/apt/sources.list.d/pgdg.list')
 
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 sudo apt-get update
-sudo apt-get install postgresql-10
+sudo apt-get install postgresql-9.5
 
 echo 'Would you like to retrieve all or partial data? Enter f or p'
 read fp
