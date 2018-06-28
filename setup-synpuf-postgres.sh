@@ -23,7 +23,10 @@ fi
 
 the_d=$(pwd)
 
-mkdir cache
+if [! -e cache]
+	then 
+		mkdir cache
+fi
 
 while read _hash _link; do
   f=$(echo $_link | sed 's/.*\///')
