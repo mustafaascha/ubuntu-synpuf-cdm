@@ -8,7 +8,7 @@ sudo touch $sources
 
 db_cmd=$(echo "echo \"deb http://apt.postgresql.org/pub/repos/apt/ $ubuntu_version-pgdg main\" > $sources")
 
-echo db_cmd | sudo bash
+echo $db_cmd | sudo bash
 
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 sudo apt-get update
