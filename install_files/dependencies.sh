@@ -5,8 +5,10 @@ ubuntu_version=$(lsb_release -a 2> /dev/null | grep Codename | awk '{print $2}')
 sources=$(echo '/etc/apt/sources.list.d/pgdg.list')
 
 sudo touch $sources
-add_src_cmd=$(echo 'echo "deb http://apt.postgresql.org/pub/repos/apt/ $ubuntu_version-pgdg main" > $sources')
-echo $add_src_cmd | sudo bash
+
+db_cmd=$(echo "echo \"deb http://apt.postgresql.org/pub/repos/apt/ $ubuntu_version-pgdg main\" > $sources")
+
+echo db_cmd | sudo bash
 
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 sudo apt-get update
