@@ -35,6 +35,21 @@ cd cache
 ls -1 | xargs gunzip
 cd ..
 
-echo 'Please visit http://www.ohdsi.org/web/athena/ and download the SNOMED, ICD9CM, ICD9Proc, CPT4, HCPCS, LOINC, RxNorm, and NDC vocabulary files'
-echo 'When you have downloaded these files, press enter.'
+echo 'Please visit http://www.ohdsi.org/web/athena/ and download the SNOMED, ICD9CM, ICD9Proc, CPT4, HCPCS, LOINC, RxNorm, and NDC vocabulary files. Place them in the vocab folder.'
+echo 'When you have downloaded these files, press enter within this script.'
 read _
+
+
+export JAVA_HOME="usr/lib/jvm/java-9-openjdk-amd64/jre/bin/java"
+
+cd vocab
+java -jar cpt4.jar
+cd ..
+
+cd SQL
+sed -i.bk "s/SUBTHIS/$the_d/g"
+cd ..
+
+source SQL/run-sql.sh
+
+echo 'Done setting up your SynPUF OMOP CDM!'
