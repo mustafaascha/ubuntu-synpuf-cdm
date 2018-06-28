@@ -26,13 +26,21 @@ the_d=$(pwd)
 mkdir cache
 
 while read _hash _link; do
-	f=$(echo $_link | sed 's/.*\///')
-	wget -O $f $_link
-	shasum cache/$f | awk '$1==$_hash{print"$f successfully downloaded\n"}'
+  f=$(echo $_link | sed 's/.*\///')
+  if [! -e cache/$f]
+  	then
+  			wget -O $f $_link
+  			shasum cache/$f | awk '{if ($1==$_hash)
+																 {print "$f successfully downloaded\n"} 
+																else 
+																 {print "There was a problem downloading $f\n"}'
+  	else
+  		echo 'Data appears to exist, continuing to vocabulary and database setup'
+  fi
 done <$the_d/$data
 
 cd cache
-ls -1 | xargs gunzip
+ls -1 | xargs unzip
 cd ..
 
 echo 'Please visit http://www.ohdsi.org/web/athena/ and download the SNOMED, ICD9CM, ICD9Proc, CPT4, HCPCS, LOINC, RxNorm, and NDC vocabulary files. Place them in the vocab folder.'
