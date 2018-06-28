@@ -29,7 +29,7 @@ while read _hash _link; do
 	f=$(echo $_link | sed 's/.*\///')
 	wget -O $f $_link
 	shasum cache/$f | awk '$1==$_hash{print"$f successfully downloaded\n"}'
-done <$the_d/data-download.txt
+done <$the_d/$data
 
 cd cache
 ls -1 | xargs gunzip
@@ -38,7 +38,6 @@ cd ..
 echo 'Please visit http://www.ohdsi.org/web/athena/ and download the SNOMED, ICD9CM, ICD9Proc, CPT4, HCPCS, LOINC, RxNorm, and NDC vocabulary files. Place them in the vocab folder.'
 echo 'When you have downloaded these files, press enter within this script.'
 read _
-
 
 export JAVA_HOME="usr/lib/jvm/java-9-openjdk-amd64/jre/bin/java"
 
