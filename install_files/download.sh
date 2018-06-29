@@ -10,8 +10,6 @@ if [$fp == "f"]
 		data="install_files/sampled-data.txt"
 fi
 
-the_d=$(pwd)
-
 if [! -e cache]
 	then 
 		mkdir cache
@@ -25,7 +23,7 @@ while read _hash _link; do
 										else {print "There was a problem downloading $f\n"}}'
 	unzip $f
 	cd ..
-done <$the_d/$data
+done <$(pwd)/$data
 
 echo 'Please visit http://www.ohdsi.org/web/athena/ and download the SNOMED, ICD9CM, ICD9Proc, CPT4, HCPCS, LOINC, RxNorm, and NDC vocabulary files. Unzip and place them in the vocab folder.'
 echo 'When you have downloaded these files, press enter.'

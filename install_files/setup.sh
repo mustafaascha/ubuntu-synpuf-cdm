@@ -8,7 +8,7 @@ java -jar cpt4.jar 5
 cd ..
 
 cd SQL
-sed -i.bk "s/SUBTHIS/$the_d/g"
+sed -i.bk "s/SUBTHIS/$(pwd)/g"
 cd ..
 
 cd cache
