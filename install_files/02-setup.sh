@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-export JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-amd64"
+#export JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-amd64"
 
 cd vocab
 java -jar cpt4.jar 5
