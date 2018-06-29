@@ -19,5 +19,5 @@ sudo -u postgres psql -U postgres -d postgres -c "alter user postgres with passw
 
 export JAVA_HOME="usr/lib/jvm/java-9-openjdk-amd64/jre/bin/java"
 
-sudo apt-get -y install openjdk-9-jdk
+sudo apt-get -y install openjdk-8-jdk
 
