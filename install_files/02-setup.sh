@@ -9,10 +9,8 @@ cd ..
 
 the_dir=$(pwd)
 cd SQL
-echo $(pwd)
 ls | grep load | xargs -I {FL} sed -i.bk "s:SUBTHIS:$the_dir:g" {FL}
 cd ..
-echo $(pwd)
 
 cd cache
 ls | grep _1.csv | sed 's/_1\.csv//' | xargs -I {FILE} mv {FILE}_1.csv {FILE}.csv 
