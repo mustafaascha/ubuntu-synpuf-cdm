@@ -14,10 +14,18 @@ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-
 sudo apt-get update
 sudo apt-get -y install postgresql-9.5
 
+echo 'systemctl start postgresql' | sudo bash
 echo 'setting postgres password to "password", change ASAP!'
 sudo -u postgres psql -U postgres -d postgres -c "alter user postgres with password 'password';"
 
-export JAVA_HOME="usr/lib/jvm/java-1.8.0-openjdk-amd64"
+export JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-amd64"
 
 sudo apt-get -y install openjdk-8-jdk
+
+if [! -e data]
+	then
+		mkdir data
+fi
+
+
 

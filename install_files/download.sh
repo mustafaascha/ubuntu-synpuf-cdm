@@ -31,7 +31,7 @@ cd cache
 ls -1 | xargs unzip
 cd ..
 
-echo 'Please visit http://www.ohdsi.org/web/athena/ and download the SNOMED, ICD9CM, ICD9Proc, CPT4, HCPCS, LOINC, RxNorm, and NDC vocabulary files. Place them in the vocab folder.'
+echo 'Please visit http://www.ohdsi.org/web/athena/ and download the SNOMED, ICD9CM, ICD9Proc, CPT4, HCPCS, LOINC, RxNorm, and NDC vocabulary files. Unzip and place them in the vocab folder.'
 echo 'When you have downloaded these files, press enter.'
 read _ 
 
