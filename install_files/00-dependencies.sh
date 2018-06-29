@@ -30,6 +30,5 @@ sudo -u postgres psql -U postgres -d postgres -c "alter user postgres with passw
 sudo add-apt-repository ppa:linuxuprising/java
 sudo apt-get update
 sudo apt-get -y install oracle-java10-installer
-sudo apt-get -y install oracle-java-10-set-default
 
 
