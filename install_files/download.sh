@@ -19,19 +19,12 @@ fi
 
 while read _hash _link; do
   f=$(echo $_link | sed 's/.*\///')
-  if [! -e cache/$f]
-  	then
-				cd cache
-  			wget -O $f $_link
-  			shasum $f | awk '{if ($1==$_hash)
-																 {print "$f successfully downloaded\n"} 
-																else 
-																 {print "There was a problem downloading $f\n"}'
-				unzip $f
-			  cd ..
-  	else
-  		echo 'Data appears to exist, continuing to vocabulary and database setup'
-  fi
+  cd cache
+  wget -O $f $_link
+  shasum $f | awk '{if ($1==$_hash) {print "$f successfully downloaded\n"} 
+										else {print "There was a problem downloading $f\n"}}'
+	unzip $f
+	cd ..
 done <$the_d/$data
 
 cd cache
