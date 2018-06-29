@@ -17,7 +17,7 @@ sudo apt-get -y install postgresql-9.5
 echo 'setting postgres password to "password", change ASAP!'
 sudo -u postgres psql -U postgres -d postgres -c "alter user postgres with password 'password';"
 
-export JAVA_HOME="usr/lib/jvm/java-9-openjdk-amd64/jre/bin/java"
+export JAVA_HOME="usr/lib/jvm/java-1.8.0-openjdk-amd64"
 
 sudo apt-get -y install openjdk-8-jdk
 
