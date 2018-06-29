@@ -35,7 +35,7 @@ declare -a fls=("init-postgres.SQL"
 #https://stackoverflow.com/questions/20796200/how-to-iterate-over-files-in-a-directory-with-bash
 for file in "${fls[@]}" 
 do
-  sudo -i -u postgres psql -U postgres -f $(pwd)SQL/$file
+  sudo -i -u postgres psql -U postgres -f $(pwd)/SQL/$file
 	echo $file has been run\n
 done
 
