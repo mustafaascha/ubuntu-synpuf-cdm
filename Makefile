@@ -7,10 +7,10 @@ all: dependencies\
 VPATH = install_files
 
 dependencies: dependencies.sh
-	bash install_files/dependencies.sh
+	bash install_files/00-dependencies.sh
 
-download: download.sh
-	bash install_files/download.sh
+synpuf_1.zip: download.sh
+	bash install_files/01-download.sh
 
 setup: setup.sh
-	bash install_files/setup.sh
+	bash install_files/02-setup.sh

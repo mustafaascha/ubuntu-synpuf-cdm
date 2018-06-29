@@ -1,19 +1,16 @@
 #!/bin/bash
 
-echo 'Would you like to retrieve all or partial data? Enter f or p'
-read fp
+#echo 'Would you like to retrieve all or partial data? Enter f or p'
+#read fp
 
-if [$fp == "f"]
-	then
-		data="install_files/full-data.txt"
-	else
-		data="install_files/sampled-data.txt"
-fi
+#if [$fp == "f"]
+#	then
+#		data="install_files/full-data.txt"
+#	else
+#		data="install_files/sampled-data.txt"
+#fi
 
-if [! -e cache]
-	then 
-		mkdir cache
-fi
+data="install_files/sampled-data.txt"
 
 while read _hash _link; do
   f=$(echo $_link | sed 's/.*\///')
