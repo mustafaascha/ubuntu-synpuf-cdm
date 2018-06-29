@@ -2,7 +2,7 @@ all: dependencies\
 		 download\
 		 setup
 
-.PHONY: dependencies download
+.PHONY: dependencies download setup
 
 VPATH = install_files
 
