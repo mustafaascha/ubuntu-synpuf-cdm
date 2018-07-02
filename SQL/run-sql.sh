@@ -21,23 +21,25 @@
 #psql -U postgres -f SQL/create_CDMv5_drug_era_non_stockpile.sql
 
 #https://stackoverflow.com/questions/29161323/how-to-keep-associative-array-order-in-bash
-declare -A fls;                            declare -A orders;  
-fls["i"]="init-postgres.SQL";                         orders+=("i")
-fls["ct"]="create_CDMv5_tables.sql";                  orders+=("ct")
-fls["lv"]="load_CDMv5_vocabulary.sql";                orders+=("lv")
-fls["ls"]="load_CDMv5_synpuf.sql";                    orders+=("ls")
-fls["cc"]="create_CDMv5_constraints.sql";             orders+=("cc")
-fls["ci"]="create_CDMv5_indices.sql";                 orders+=("ci")
-fls["cce"]="create_CDMv5_condition_era.sql";          orders+=("cce")
-fls["cde"]="create_CDMv5_drug_era_non_stockpile.sql"; orders+=("")
+fls=(
+"init-postgres.sql"
+"create_CDMv5_tables.sql"
+"load_CDMv5_vocabulary.sql"
+"load_CDMv5_synpuf.sql"
+"create_CDMv5_constraints.sql"
+"create_CDMv5_indices.sql"
+"create_CDMv5_condition_era.sql"
+"create_CDMv5_drug_era_non_stockpile.sql"
+)
 
-
+the_dir=$(pwd)
 
 #https://stackoverflow.com/questions/20796200/how-to-iterate-over-files-in-a-directory-with-bash
-for file in "${orders[@]}" 
+#for file in "${!orders[@]}" 
+for file in "${!fls[@]}" 
 do
-  sudo -i -u postgres psql -U postgres -f $(pwd)/SQL/${fls[$file]}
-	echo ${fls[$file]} has been run
+  sudo -i -u postgres psql -U postgres -f $the_dir/SQL/${fls[$file]}
+  echo "${fls[$file]} has been run"
 done
 
 
