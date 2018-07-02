@@ -1,15 +1,15 @@
 all: depends\
-		 synpuf_1.zip\
-		 setup
+     download\
+     setup
 
-.PHONY: depends setup
+.PHONY: depends download setup
 
 VPATH = install_files
 
 depends:
 	bash install_files/00-dependencies.sh
 
-synpuf_1.zip: 01-download.sh
+download: 01-download.sh
 	bash install_files/01-download.sh
 
 setup:
