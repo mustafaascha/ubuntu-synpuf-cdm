@@ -9,7 +9,7 @@ VPATH = install_files
 depends:
 	bash install_files/00-dependencies.sh
 
-download: 01-download.sh
+download:
 	bash install_files/01-download.sh
 
 setup:
