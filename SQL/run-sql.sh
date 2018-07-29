@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# [The scripts that are run here were graciously open-sourced here](https://github.com/OHDSI/ETL-CMS)
+
 #https://stackoverflow.com/questions/29161323/how-to-keep-associative-array-order-in-bash
 fls=(
 "init-postgres.sql"
