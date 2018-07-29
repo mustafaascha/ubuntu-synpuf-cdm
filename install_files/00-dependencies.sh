@@ -16,7 +16,7 @@ sudo apt-get -y install postgresql-9.5
 
 echo 'systemctl start postgresql' | sudo bash
 echo 'setting postgres password to "password", change ASAP!'
-sudo -u postgres psql -U postgres -d postgres -c "alter user postgres with password 'password';"
+sudo -u postgres psql -U postgres -d postgres -c "ALTER USER postgres WITH password 'password';"
 
 sudo add-apt-repository ppa:linuxuprising/java
 sudo apt-get update
